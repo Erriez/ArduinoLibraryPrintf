@@ -45,7 +45,7 @@ void setup()
 
   // Use printf() to print the variable
   int value1 = 1234;
-  printf_P(PSTR("millis(): %d\r\n"), value1);
+  printf_P(PSTR("Value: %d\r\n"), value1);
 }
 
 void loop()
