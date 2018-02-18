@@ -5,7 +5,7 @@ This library redirects printf() calls to the first serial port.
 ## Installation
 1. Start the Arduino IDE.
 2. Download the latest version from:  
-   https://github.com/Erriez/ArduinoLibraryPrintf/archive/master.zip
+   https://github.com/Erriez/ErriezPrintf/archive/master.zip
 3. Click Sketch | Include Library | Add .ZIP Library... and select this ZIP.
 5. Run the example.
 
