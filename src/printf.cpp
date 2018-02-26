@@ -22,41 +22,72 @@
  * SOFTWARE.
  */
 
-/* printf() example
- * Source: https://github.com/Erriez/ErriezPrintf
+/*!
+ * \file
+ *     printf.cpp
+ * \brief
+ *     printf() library for Arduino.
+ * \details
+ *     Source: https://github.com/Erriez/ErriezPrintf
  */
 
-#include <Arduino.h>
-#include <printf.h>
+#include "printf.h"
 
-void setup()
+#if defined(__arm__)
+
+void printfBegin()
 {
-  // Initialize Serial port
-  Serial.begin(115200);
-
-  // Redirect printf() calls to the first serial port
-  printfBegin();
-
-  // Use printf() with string in RAM
-  printf("Hello world with printf() string in RAM\r\n");
-
-  // Use printf() with string in flash
-  printf_P(PSTR("Hello world with printf() string in flash\r\n"));
-
-  // Use printf() to print the variable
-  int value1 = 1234;
-  printf_P(PSTR("Value: %d\r\n"), value1);
-
-  // Print 8-bit hex value
-  printHex8(0xa5);
-
-  // Print 16-bit hex value
-  printHex16(0x1234);
-
-  // Print 32-bit hex value
-  printHex32(0xdeadbeef);
 }
 
-void loop()
+#else // __arm__
+
+int serial_putc(char c, FILE *)
 {
+  Serial.write(c);
+
+  return c;
+}
+
+void printfBegin()
+{
+  fdevopen(&serial_putc, 0);
+}
+
+#endif // __arm__
+
+void printHex8(uint8_t val)
+{
+  Serial.print("0x");
+  if (val < 0x10) {
+    Serial.print("0");
+  }
+  Serial.println(val, HEX);
+}
+
+void printHex16(uint16_t val)
+{
+  Serial.print("0x");
+  if (val < 0x1000) {
+    Serial.print("0");
+  }
+  if (val < 0x100) {
+    Serial.print("0");
+  }
+  if (val < 0x10) {
+    Serial.print("0");
+  }
+  Serial.println(val, HEX);
+}
+
+void printHex32(uint32_t val)
+{
+  Serial.print("0x");
+  for (int8_t i = 3; i >= 0; i--) {
+    uint8_t c = val >> (i * 8);
+    if (c < 0x10) {
+      Serial.print("0");
+    }
+    Serial.print(c, HEX);
+  }
+  Serial.println();
 }

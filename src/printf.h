@@ -22,8 +22,13 @@
  * SOFTWARE.
  */
 
-/* printf() library for Arduino
- * Source: https://github.com/Erriez/ArduinoLibraryPrintf
+/*!
+ * \file
+ *     printf.h
+ * \brief
+ *     printf() library for Arduino.
+ * \details
+ *     Source: https://github.com/Erriez/ErriezPrintf
  */
 
 #ifndef PRINTF_H__
@@ -31,32 +36,14 @@
 
 #include <Arduino.h>
 
-#if defined (ARDUINO)
-
-#if defined(__arm__)
-
-void printfBegin(void)
-{
-}
-
-#else
-
-int serial_putc(char c, FILE *)
-{
-  Serial.write(c);
-
-  return c;
-}
-
-void printfBegin(void)
-{
-  fdevopen(&serial_putc, 0);
-}
-
-#endif
-
-#else
+#if !defined (ARDUINO)
 #error This example is only for Arduino.
 #endif // ARDUINO
+
+void printfBegin();
+int serial_putc(char c, FILE *);
+void printHex8(uint8_t val);
+void printHex16(uint16_t val);
+void printHex32(uint32_t val);
 
 #endif // PRINTF_H__
