@@ -10,8 +10,8 @@
 # Methods and Functions (KEYWORD2)
 #######################################
 
-printf			KEYWORD2
-printfBegin		KEYWORD2
+printf	KEYWORD2
+printfBegin	KEYWORD2
 
 #######################################
 # Instances (KEYWORD2)
