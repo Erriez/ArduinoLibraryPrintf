@@ -23,7 +23,7 @@
  */
 
 /* printf() example
- * Source: https://github.com/Erriez/ErriezPrintf
+ * Source:          https://github.com/Erriez/ErriezPrintf
  */
 
 #include <Arduino.h>

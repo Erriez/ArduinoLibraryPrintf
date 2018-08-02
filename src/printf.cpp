@@ -23,12 +23,10 @@
  */
 
 /*!
- * \file
- *     printf.cpp
- * \brief
- *     printf() library for Arduino.
+ * \file printf.cpp
+ * \brief printf() library for Arduino.
  * \details
- *     Source: https://github.com/Erriez/ErriezPrintf
+ *      Source: https://github.com/Erriez/ErriezPrintf
  */
 
 #include "printf.h"
