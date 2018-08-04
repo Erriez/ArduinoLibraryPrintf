@@ -43,5 +43,6 @@ int serial_putc(char c, FILE *);
 void printHex8(uint8_t val);
 void printHex16(uint16_t val);
 void printHex32(uint32_t val);
+void printDec32(uint32_t val);
 
 #endif // ERRIEZ_PRINTF_H_

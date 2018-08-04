@@ -89,3 +89,11 @@ void printHex32(uint32_t val)
   }
   Serial.println();
 }
+
+void printDec32(uint32_t val)
+{
+  char buf[9];
+  
+  snprintf_P(buf, sizeof(buf), PSTR("%lu"), val);
+  Serial.println(buf);
+}

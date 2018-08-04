@@ -56,6 +56,9 @@ void setup()
 
   // Print 32-bit hex value
   printHex32(0xdeadbeef);
+  
+  // Print 32-bit decimal value
+  printDec32(12345678UL);
 }
 
 void loop()
