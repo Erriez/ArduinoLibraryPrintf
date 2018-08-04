@@ -23,69 +23,25 @@
  */
 
 /*!
- * \file printf.cpp
+ * \file ErriezPrintf.h
  * \brief printf() library for Arduino.
  * \details
  *      Source: https://github.com/Erriez/ErriezPrintf
  */
 
-#include "printf.h"
+#ifndef ERRIEZ_PRINTF_H_
+#define ERRIEZ_PRINTF_H_
 
-#if defined(__arm__)
+#include <Arduino.h>
 
-void printfBegin()
-{
-}
+#if !defined (ARDUINO)
+#error This example is only for Arduino.
+#endif // ARDUINO
 
-#else // __arm__
+void printfBegin();
+int serial_putc(char c, FILE *);
+void printHex8(uint8_t val);
+void printHex16(uint16_t val);
+void printHex32(uint32_t val);
 
-int serial_putc(char c, FILE *)
-{
-  Serial.write(c);
-
-  return c;
-}
-
-void printfBegin()
-{
-  fdevopen(&serial_putc, 0);
-}
-
-#endif // __arm__
-
-void printHex8(uint8_t val)
-{
-  Serial.print("0x");
-  if (val < 0x10) {
-    Serial.print("0");
-  }
-  Serial.println(val, HEX);
-}
-
-void printHex16(uint16_t val)
-{
-  Serial.print("0x");
-  if (val < 0x1000) {
-    Serial.print("0");
-  }
-  if (val < 0x100) {
-    Serial.print("0");
-  }
-  if (val < 0x10) {
-    Serial.print("0");
-  }
-  Serial.println(val, HEX);
-}
-
-void printHex32(uint32_t val)
-{
-  Serial.print("0x");
-  for (int8_t i = 3; i >= 0; i--) {
-    uint8_t c = val >> (i * 8);
-    if (c < 0x10) {
-      Serial.print("0");
-    }
-    Serial.print(c, HEX);
-  }
-  Serial.println();
-}
+#endif // ERRIEZ_PRINTF_H_

@@ -22,12 +22,14 @@
  * SOFTWARE.
  */
 
-/* printf() example
- * Source:          https://github.com/Erriez/ErriezPrintf
+/*!
+ * \brief printf() example
+ * \details
+ *      Source: https://github.com/Erriez/ErriezPrintf
  */
 
 #include <Arduino.h>
-#include <printf.h>
+#include <ErriezPrintf.h>
 
 void setup()
 {
