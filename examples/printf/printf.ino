@@ -28,7 +28,6 @@
  *      Source: https://github.com/Erriez/ErriezPrintf
  */
 
-#include <Arduino.h>
 #include <ErriezPrintf.h>
 
 void setup()

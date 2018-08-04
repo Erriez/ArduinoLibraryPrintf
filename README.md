@@ -5,7 +5,6 @@ This library redirects printf() calls to the first serial port.
 
 ## Example
 ```c++
-#include <Arduino.h>
 #include <ErriezPrintf.h>
 
 void setup()
