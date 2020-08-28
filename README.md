@@ -39,7 +39,7 @@ Value: 1234
 ## Library documentation
 
 * [Doxygen online HTML](https://erriez.github.io/ErriezPrintf)
-* [Doxygen PDF](https://raw.githubusercontent.com/Erriez/ErriezPrintf/gh-pages/ErriezPrintf.pdf)
+* [Doxygen PDF](https://raw.githubusercontent.com/Erriez/ErriezPrintf/master/ErriezPrintf.pdf)
 
 
 ## Library installation
