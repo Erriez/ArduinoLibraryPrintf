@@ -30,35 +30,36 @@
 
 #include <ErriezPrintf.h>
 
+
 void setup()
 {
-  // Initialize Serial port
-  Serial.begin(115200);
+    // Initialize Serial port
+    Serial.begin(115200);
 
-  // Redirect printf() calls to the first serial port
-  printfBegin();
+    // Redirect printf() calls to the first serial port
+    printfBegin();
 
-  // Use printf() with string in RAM
-  printf("Hello world with printf() string in RAM\r\n");
+    // Use printf() with string in RAM
+    printf("Hello world with printf() string in RAM\r\n");
 
-  // Use printf() with string in flash
-  printf_P(PSTR("Hello world with printf() string in flash\r\n"));
+    // Use printf() with string in flash
+    printf_P(PSTR("Hello world with printf() string in flash\r\n"));
 
-  // Use printf() to print the variable
-  int value1 = 1234;
-  printf_P(PSTR("Value: %d\r\n"), value1);
+    // Use printf() to print the variable
+    int value1 = 1234;
+    printf_P(PSTR("Value: %d\r\n"), value1);
 
-  // Print 8-bit hex value
-  printHex8(0xa5);
+    // Print 8-bit hex value
+    printHex8(0xa5);
 
-  // Print 16-bit hex value
-  printHex16(0x1234);
+    // Print 16-bit hex value
+    printHex16(0x1234);
 
-  // Print 32-bit hex value
-  printHex32(0xdeadbeef);
-  
-  // Print 32-bit decimal value
-  printDec32(12345678UL);
+    // Print 32-bit hex value
+    printHex32(0xdeadbeef);
+
+    // Print 32-bit decimal value
+    printDec32(12345678UL);
 }
 
 void loop()
